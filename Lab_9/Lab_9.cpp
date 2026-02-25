@@ -12,7 +12,15 @@ int main()
     cout << str1 << ", " << str2 << ", " << str3 << ". \n ";
     strcat_s(str1, str2);
     cout << str1 << ", " << str2 << ", " << str3 << ".\n";
-
+    int result = strcmp(str2,str3);
+    if (result < 0) {
+        cout << str2 << " < " << str3;
+    } else if (result == 0) {
+        cout << str2 << " = " << str3;
+    } else {
+        cout << str2 << " > " << str3;
+    }
+    return 0;
 
 }
 
