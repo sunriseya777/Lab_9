@@ -50,9 +50,15 @@ int main()
 
     cout << "Замена фамилии: \n";
     name.replace(5,8,"Не Семёнова");
-    cout << name;
+    cout << name<< endl;
+    cout << "\n";
+
+    cout << "Упражнение 4\n";
+    cout << "\n";
+
+
+    
+
+    
     return 0;
-
 }
-
- 
