@@ -1,4 +1,5 @@
 ﻿#include <iostream>
+#include <iomanip>
 using namespace std;
 int main()
 {
@@ -56,9 +57,22 @@ int main()
     cout << "Упражнение 4\n";
     cout << "\n";
 
+    const int max_words = 20;
+    const int word_len = 10;
+    char words[max_words][word_len + 1];
+    int n;
+    cout << "Введите количество слов (не более 20): ";
+    cin >> n;
+    cout << endl;
+    if (n > max_words) n = max_words;
+    cout << "Введите слова: \n";
+    for (int i = 0; i < n; i++) {
+        cin >> setw(word_len + 1) >> words[i];
+    }
+    cout << "Вывод слов с четными номерами: \n";
+    for (int i = 0; i < n; i += 2) {
 
-    
-
-    
+        cout << i << "\t" << words[i] << endl;
+    }
     return 0;
 }
