@@ -1,5 +1,6 @@
 ﻿#include <iostream>
 #include <iomanip>
+#include <vector>
 using namespace std;
 int main()
 {
@@ -12,7 +13,7 @@ int main()
     char str3[20] = "";
 
     cout << "Изначально: \n";
-    cout << str1 << ", " << str2 <<", "<< str3 << ".\n";
+    cout << str1 << ", " << str2 << ", " << str3 << ".\n";
     cout << "\n";
 
     cout << "Копирование из строки 1 в строку 3: \n";
@@ -26,13 +27,15 @@ int main()
     cout << "\n";
 
     cout << "Сравнение длины строки 2 и 3: \n";
-    int result = strcmp(str2,str3);
+    int result = strcmp(str2, str3);
 
     if (result < 0) {
         cout << str2 << " < " << str3;
-    } else if (result == 0) {
+    }
+    else if (result == 0) {
         cout << str2 << " = " << str3;
-    } else {
+    }
+    else {
         cout << str2 << " > " << str3;
     }
     cout << "\n";
@@ -41,17 +44,17 @@ int main()
     cout << "Добавление Фамилии в строку:\n";
     string name = "Аяна";
     name.append(" Семёнова");
-    cout << name <<"\n";
+    cout << name << "\n";
     cout << "\n";
 
     cout << "Индекс буквы я: \n";
     int sem = name.find("я");
     cout << sem << "\n";
-    cout << "\n"; 
+    cout << "\n";
 
     cout << "Замена фамилии: \n";
-    name.replace(5,8,"Не Семёнова");
-    cout << name<< endl;
+    name.replace(5, 8, "Не Семёнова");
+    cout << name << endl;
     cout << "\n";
 
     cout << "Упражнение 4\n";
@@ -64,15 +67,41 @@ int main()
     cout << "Введите количество слов (не более 20): ";
     cin >> n;
     cout << endl;
-    if (n > max_words) n = max_words;
-    cout << "Введите слова: \n";
-    for (int i = 0; i < n; i++) {
-        cin >> setw(word_len + 1) >> words[i];
-    }
-    cout << "Вывод слов с четными номерами: \n";
-    for (int i = 0; i < n; i += 2) {
+    if (n > max_words){
+        cout << "Ошибка, количество слов не более 20!\n";
+    }else{
+        cout << "Введите слова: \n";
+        for (int i = 0; i < n; i++){
+            cin >> setw(word_len + 1) >> words[i];
+        }
+        cout << "Вывод слов с четными номерами: \n";
+        for (int i = 1; i < n; i += 2){
 
-        cout << i << "\t" << words[i] << endl;
+            cout << i << "\t" << words[i] << endl;
+        }
+    }
+    cout << "2 вариант: \n ";
+     
+    cout << "Введите количество слов (не более 20): ";
+    cin >> n;
+    if (n > max_words){
+        cout << "Ошибка, количество слов не более 20!\n";
+    }else{
+        vector < string > word(n);
+        cout << "Введите слова: \n";
+        for (int i = 0; i < n; i++){
+            cin >> word[i];
+            if (word[i].length() > word_len){
+                cout << "Ошибка, длина слова не должна превышать 10!";
+            }
+        }
+        cout << "Вывод слов с четными номерами: \n";
+        for (int i = 1; i < n; i += 2){
+
+            cout << i << "\t" << word[i] << endl;
+        }
+
     }
     return 0;
 }
+ 
